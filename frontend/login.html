@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Ghibli Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #111814;
+        font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-white flex flex-col items-center justify-center px-4">
+    <!-- Ghibli GIF Banner -->
+    <div class="w-full max-w-lg mb-6 rounded-lg overflow-hidden">
+      <img
+        src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1qd3Nucmxxb2ptYWJzZGVlbTd3ZXU0eTJ4MWhicTd5OWdvbmljdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hAuYWrVIyfK5G/giphy.gif"
+        alt="Ghibli Sky"
+        class="w-full h-48 object-cover"
+      />
+    </div>
+
+    <!-- Login Form -->
+    <div class="bg-[#1c2b26] p-6 rounded-xl shadow-lg w-full max-w-md">
+      <h1 class="text-2xl font-bold text-center mb-4"> Login</h1>
+      <form id="login-form" class="space-y-4">
+        <input
+          type="text"
+          id="username"
+          placeholder="Username"
+          required
+          class="w-full px-4 py-2 rounded-full bg-[#283930] placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-[#34f390]"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
+          class="w-full px-4 py-2 rounded-full bg-[#283930] placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-[#34f390]"
+        />
+        <button
+          type="submit"
+          class="w-full bg-[#34f390] text-[#111814] font-bold py-2 rounded-full hover:bg-[#3efc9c] transition"
+        >
+          Login
+        </button>
+      </form>
+      <p id="login-message" class="text-red-400 text-sm mt-4 text-center hidden">Invalid credentials</p>
+
+    <div class="space-y-3 mt-6">
+    <a href="/auth/google">
+      <button class="w-full bg-white text-black font-semibold py-2 rounded-full flex items-center justify-center pl-4 pr-4 gap-x-4 border border-gray-300">
+        <img src="https://brandlogos.net/wp-content/uploads/2025/05/google_icon_2025-logo_brandlogos.net_qm5ka-300x307.png" alt="Google" class="w-5 h-5">
+        <span>Login with Google</span>
+      </button>
+    </a>
+
+    <button class="w-full bg-black text-white font-semibold py-2 rounded-full flex items-center justify-center pl-4 pr-4 gap-x-4">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq7J3CQqK1BDwd9ti9YxaexHI3C8qpRqQgjA&s" alt="Apple" class="w-5 h-5">
+      <span>Login with Apple</span>
+    </button>
+  </div>
+
+  <div class="text-center text-gray-500 text-sm">
+    — or —
+  </div>
+<p class="text-center text-sm text-gray-600">
+    Don't have an account?
+    <a href="register.html" class="text-green-600 hover:underline font-medium">
+      Sign up
+    </a>
+  </p>
+</div>
+</div>
+    <!-- Script -->
+    <script>
+      const backendBase = window.location.hostname.includes("localhost")
+       ? "http://localhost:5000"
+       : "https://your-backend.onrender.com";
+
+
+      document.getElementById("login-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        const res = await fetch(`${backendBase}/api/login`, {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const msg = document.getElementById("login-message");
+        if (res.ok) {
+          // Redirect to calendar
+          window.location.href = "ghibli.html";
+        } else {
+          msg.classList.remove("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700;800" />
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind CSS configuration must be placed AFTER the Tailwind CDN script
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="stylesheet" href="ghibli.css" />
+</head>
+
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300" style="font-family: 'Plus Jakarta Sans', sans-serif ;">
+  <div id="home-div" class="relative flex size-full min-h-screen flex-col bg-[#111814] dark group/design-root overflow-x-hidden"
+    style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#283930] px-4 sm:px-6 md:px-10 py-3">
+        <div class="flex items-center gap-4 text-white">
+          <div class="size-4">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Ghibli Calendar</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-9">
+          </div>
+          <div class="flex gap-2 relative">
+            <!-- Settings button -->
+            <button id="settings-toggle"
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#283930] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+              <div class="text-white" data-icon="Gear" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z">
+                  </path>
+                </svg>
+              </div>
+            </button>
+
+            <!-- This dropdown is specifically for background/color options -->
+            <div class="relative">
+              <button id="more-options-toggle"
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#283930] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                <span class="text-white">Customize</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path d="M216,96H40a8,8,0,0,0-5.66,13.66l88,88a8,8,0,0,0,11.32,0l88-88A8,8,0,0,0,216,96Z"></path>
+                </svg>
+              </button>
+              <div id="more-options-dropdown"
+                class="absolute right-0 mt-2 w-48 bg-[#283930] rounded-md shadow-lg py-1 z-10 hidden">
+                <p class="px-4 py-2 text-sm text-gray-400">General Backgrounds</p>
+                <button
+                  class="dropdown-bg-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-bg="https://images.steamusercontent.com/ugc/1758073114103109159/20B042641BF6359FEE0D9E96CE7D62205EB179A3/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false">Ghibli
+                  Forest</button>
+                <button
+                  class="dropdown-bg-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-bg="https://wallpapers.com/images/hd/japanese-castle-anime-landscape-r217nepmbm4j1hci.jpg">Castle</button>
+                <button
+                  class="dropdown-bg-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-bg="https://wallpapers.com/images/hd/anime-night-city-f4uhf40u30rw7oxf.jpg">City Night</button>
+
+                   <p class="px-4 py-2 text-sm text-gray-400 mt-2">Home Screen Color</p>
+                   <div id="home-div" class="flex flex-wrap gap-2 px-4 py-2">
+                  <button class="home-bg-color-option size-6 rounded-full border border-white" data-color="#C599B6" data-text="#111111"></button>
+                  <button class="home-bg-color-option size-6 rounded-full border border-white" data-color="#DA6C6C" data-text="#FFFFFF"></button>
+                  <button class="home-bg-color-option size-6 rounded-full border border-white" data-color="#B1C29E" data-text="#FFFFFF"></button>
+                  <button class="home-bg-color-option size-6 rounded-full border border-white" data-color="#9FB3DF" data-text="#FFFFFF"></button>
+                  <button class="home-bg-color-option size-6 rounded-full border border-white" data-color="#D5C7A3" data-text="#F3F4F6"></button>
+                  <button class="home-bg-color-option size-6 rounded-full border border-white" data-color="#3b5447" data-text="#FFFFFF"></button>
+                   </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 w-full">
+          <div class="@container">
+            <div class="@[480px]:px-4 @[480px]:py-3">
+              <div id="background-image-div"
+                class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#111814] @[480px]:rounded-xl min-h-[218px]"
+                style='background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1qd3Nucmxxb2ptYWJzZGVlbTd3ZXU0eTJ4MWhicTd5OWdvbmljdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hAuYWrVIyfK5G/giphy.gif");'>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3 p-3 flex-wrap justify-center">
+            <!-- Movie buttons are now proper <button> elements -->
+            <button
+              class="movie-button flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#283930] pl-4 pr-4"
+              data-movie-bg="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1qd3Nucmxxb2ptYWJzZGVlbTd3ZXU0eTJ4MWhicTd5OWdvbmljdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hAuYWrVIyfK5G/giphy.gif">
+              <p class="text-white text-sm font-medium leading-normal">Default</p>
+            </button>
+            <button
+              class="movie-button flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-[#283930] pl-4 pr-4"
+              data-movie-bg="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNneW96eHZpZDZtMnZ6NjN5amZ0Y3E3NjJ2NXZsMDFkOHRxMWxneSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Q9NrmGiBbsvfO/giphy.gif">
+              <p class="text-white text-sm font-medium leading-normal">Ponyo</p>
+            </button>
+
+            <!-- More Movie Backgrounds Dropdown Button -->
+            <div class="relative">
+              <button id="more-movie-options-toggle"
+                class="flex items-center justify-center rounded-full h-8 bg-[#283930] text-white gap-2 text-sm font-bold px-4">
+                More
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path d="M216,96H40a8,8,0,0,0-5.66,13.66l88,88a8,8,0,0,0,11.32,0l88-88A8,8,0,0,0,216,96Z"></path>
+                </svg>
+              </button>
+
+              <!-- Dropdown menu (initially hidden) -->
+              <div id="more-movie-options-dropdown"
+                class="hidden absolute z-10 mt-2 w-72 rounded-md bg-[#1c2b26] shadow-lg">
+                <button
+                  class="dropdown-movie-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-movie-bg="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXE1Zmx1bG1mMW9iZHVsNWEwMWljdGJ5bnYyc3RpbTRvZXR4NW5qOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l41m3V90DuqpckBkk/giphy.gif">
+                  Howl's Moving Castle
+                </button>
+                <button
+                  class="dropdown-movie-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-movie-bg="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHZobHhoZ3hpYjFzdzVqaXp6MjBqbXdoY3J2c3hxbzJidmg5NGE4OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/cBKMTJGAE8y2Y/giphy.gif">
+                  Kiki's Delivery Service
+                </button>
+                <button
+                  class="dropdown-movie-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-movie-bg="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1qd3Nucmxxb2ptYWJzZGVlbTd3ZXU0eTJ4MWhicTd5OWdvbmljdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7uL3gPwnUBrvq/giphy.gif">
+                  Spirited Away
+                </button>
+                <button
+                  class="dropdown-movie-option block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#3b5447]"
+                  data-movie-bg="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjd4cThuYTUyMXBlbXkwaHIzdjYyeG83YTZkMzJ0ZGFkaDNvYTEzaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eHQ5BsgBIBIGI/giphy.gif">
+                  My Neighbor Totoro
+                </button>
+              </div>
+            </div>
+          </div>
+          <h2 id="current-month-year"
+            class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5"></h2>
+          <div class="flex flex-wrap items-center justify-center gap-6 p-4">
+            <div class="flex min-w-72 max-w-sm flex-1 flex-col gap-0.5">
+              <!-- Adjusted max-w to sm for better responsiveness -->
+              <div class="flex items-center p-1 justify-between">
+                <button id="prev-month-btn">
+                  <div class="text-white flex size-10 items-center justify-center" data-icon="CaretLeft"
+                    data-size="18px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor"
+                      viewBox="0 0 256 256">
+                      <path
+                        d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z">
+                      </path>
+                    </svg>
+                  </div>
+                </button>
+                <div class="relative flex-1 text-center">
+                  <button id="month-year-display"
+                    class="text-white text-base font-bold leading-tight mx-auto px-2 py-1 rounded hover:bg-[#3b5447]">
+                    2025
+                  </button>
+
+                  <!-- Dropdown for years -->
+                  <div id="year-dropdown"
+                    class="hidden absolute z-10 bg-[#1c2b26] mt-2 max-h-48 overflow-y-auto rounded shadow-lg text-left w-32 left-1/2 -translate-x-1/2">
+                    <!-- Years will be inserted here dynamically -->
+                  </div>
+                </div>
+
+                <button id="next-month-btn">
+                  <div class="text-white flex size-10 items-center justify-center" data-icon="CaretRight"
+                    data-size="18px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor"
+                      viewBox="0 0 256 256">
+                      <path
+                        d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
+                      </path>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <div id="calendar-grid" class="grid grid-cols-7">
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  S</p>
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  M</p>
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  T</p>
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  W</p>
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  T</p>
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  F</p>
+                <p
+                  class="text-white text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">
+                  S</p>
+                <!-- Calendar days will be rendered here by JavaScript -->
+              </div>
+            </div>
+          </div>
+          <!--Bottom Nav bar-->
+          <div class="pb-3">
+            <div class="flex border-b border-[#3b5447] px-4 justify-between">
+              <a class="nav-tab flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-white gap-1 pb-[7px] pt-2.5 flex-1"
+                href="dailytasks.html">
+                <div class="text-white" data-icon="ListBullets" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                      d="M80,64a8,8,0,0,1,8-8H216a8,8,0,0,1,0,16H88A8,8,0,0,1,80,64Zm136,56H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Zm0,64H88a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16ZM44,52A12,12,0,1,0,56,64,12,12,0,0,0,44,52Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,116Zm0,64a12,12,0,1,0,12,12A12,12,0,0,0,44,180Z">
+                    </path>
+                  </svg>
+                </div>
+                <p class="text-white text-sm font-bold leading-normal tracking-[0.015em]">Daily</p>
+              </a>
+              <a class="nav-tab flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-white gap-1 pb-[7px] pt-2.5 flex-1"
+                href="weekly.html">
+                <div class="text-white" data-icon="Calendar" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                      d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z">
+                    </path>
+                  </svg>
+                </div>
+                <p class="text-white text-sm font-bold leading-normal tracking-[0.015em]">Weekly</p>
+              </a>
+              <a class="nav-tab flex flex-col items-center justify-center border-b-[3px] border-b-white text-white gap-1 pb-[7px] pt-2.5 flex-1"
+                href="ghibli.html">
+                <div class="text-white" data-icon="CalendarX" data-size="24px" data-weight="fill">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                      d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM157.66,170.34a8,8,0,0,1-11.32,11.32L128,163.31l-18.34,18.35a8,8,0,0,1-11.32-11.32L116.69,152,98.34,133.66a8,8,0,0,1,11.32-11.32L128,140.69l18.34-18.35a8,8,0,0,1,11.32,11.32L139.31,152ZM208,80H48V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24Z">
+                    </path>
+                  </svg>
+                </div>
+                <p class="text-white text-sm font-bold leading-normal tracking-[0.015em]">Monthly</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Custom Modal for Alerts -->
+  <div id="custom-alert-modal"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg p-6 max-w-sm mx-auto shadow-lg">
+      <h3 class="text-lg font-bold mb-4 text-gray-900" id="custom-alert-title"></h3>
+      <p class="text-sm text-gray-700 mb-6" id="custom-alert-message"></p>
+      <div class="flex justify-end">
+        <button id="custom-alert-ok-btn"
+          class="bg-[#34f390] text-[#111814] px-4 py-2 rounded-full font-bold text-sm">OK</button>
+      </div>
+    </div>
+  </div>
+  <!-- Custom Modal for Prompts (now with color picker) -->
+  <div id="custom-prompt-modal"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg p-6 max-w-sm mx-auto shadow-lg">
+      <h3 class="text-lg font-bold mb-4 text-gray-900" id="custom-prompt-title"></h3>
+      <p class="text-sm text-gray-700 mb-4" id="custom-prompt-message"></p>
+      <input type="text" id="custom-prompt-input" placeholder="Event Title"
+        class="w-full p-2 border border-gray-300 rounded-md mb-4 text-gray-900 focus:ring-2 focus:ring-[#34f390] focus:border-transparent">
+      <div class="mb-4">
+        <label for="event-color-picker" class="block text-sm font-medium text-gray-700 mb-2">Event Color:</label>
+        <input type="color" id="event-color-picker" value="#34f390"
+          class="w-full h-10 border border-gray-300 rounded-md cursor-pointer">
+      </div>
+      <div class="flex justify-end gap-2">
+        <button id="custom-prompt-cancel-btn"
+          class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full font-bold text-sm hover:bg-gray-300">Cancel</button>
+        <button id="custom-prompt-ok-btn"
+          class="bg-[#34f390] text-[#111814] px-4 py-2 rounded-full font-bold text-sm hover:bg-[#2edb7c]">OK</button>
+      </div>
+    </div>
+  </div>
+ <!-- Settings Dropdown -->
+<div id="settings-panel" class="hidden fixed top-16 right-4 bg-[#1c2b26] text-white rounded-lg shadow w-48 z-50">
+  <ul class="flex flex-col py-2">
+    <li id="login-link" class="hidden">
+      <a href="login.html" class="block px-4 py-2 hover:bg-[#2a3f37] text-sm">Login</a>
+    </li>
+    <li id="switch-user" class="hidden">
+      <a href="login.html" class="block px-4 py-2 hover:bg-[#2a3f37] text-sm">Switch User</a>
+    </li>
+    <li id="logout-link" class="hidden">
+      <a href="register.html" class="block px-4 py-2 hover:bg-[#2a3f37] text-sm">Logout</a>
+    </li>
+  </ul>
+</div>
+<script src="ghibli.js"></script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registeration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #111814;
+        font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-white flex flex-col items-center justify-center px-4">
+    <!-- Ghibli Banner -->
+    <div class="w-full max-w-lg mb-6 rounded-lg overflow-hidden">
+      <img
+        src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbm1qd3Nucmxxb2ptYWJzZGVlbTd3ZXU0eTJ4MWhicTd5OWdvbmljdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hAuYWrVIyfK5G/giphy.gif"
+        alt="Ghibli Sky"
+        class="w-full h-48 object-cover"
+      />
+    </div>
+
+    <!-- Register Form -->
+    <div class="bg-[#1c2b26] p-6 rounded-xl shadow-lg w-full max-w-md">
+      <h1 class="text-2xl font-bold text-center mb-4">Register</h1>
+      <form id="register-form" class="space-y-4">
+        <input
+          type="text"
+          id="new-username"
+          placeholder="Ghibli Username"
+          required
+          class="w-full px-4 py-2 rounded-full bg-[#283930] placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-[#34f390]"
+        />
+        <input
+          type="email"
+          id="email-id"
+          placeholder="Enter Email-Id"
+          required
+          class="w-full px-4 py-2 rounded-full bg-[#283930] placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-[#34f390]"
+        />
+        <input
+          type="password"
+          id="new-password"
+          placeholder="Create a password"
+          required
+          class="w-full px-4 py-2 rounded-full bg-[#283930] placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-[#34f390]"
+        />
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Re-enter password"
+          required
+          class="w-full px-4 py-2 rounded-full bg-[#283930] placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-[#34f390]"
+        />
+        <button
+          type="submit"
+          class="w-full bg-[#34f390] text-[#111814] font-bold py-2 rounded-full hover:bg-[#3efc9c] transition"
+        >
+          Register
+        </button>
+      </form>
+      <p id="register-message" class="text-sm text-center mt-4 hidden"></p>
+    </div>
+    <div class="mt-4 text-sm text-center">
+  <p class="text-gray-400">
+    Already have an account?
+    <a href="login.html" class="text-[#34f390] hover:underline">Login here</a>
+  </p>
+</div>
+
+<div class="mt-4 space-y-2">
+  <a href="/auth/google">
+  <button class="w-full bg-white text-black font-bold py-2 rounded-full flex items-center justify-center pl-4 pr-4 gap-x-4">
+    <img src ="https://brandlogos.net/wp-content/uploads/2025/05/google_icon_2025-logo_brandlogos.net_qm5ka-300x307.png" class="w-5 h-5">
+    <span>Continue with Google</span>
+  </button>
+</a>
+
+  <button class="w-full bg-black text-white font-bold py-2 rounded-full flex items-center justify-center pl-4 pr-4 gap-x-4">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq7J3CQqK1BDwd9ti9YxaexHI3C8qpRqQgjA&s" class="w-5 h-5">
+    Continue with Apple
+  </button>
+</div>
+
+    <script>
+      const backendBase = "http://localhost:5000"; // or your Render backend
+
+      document.getElementById("register-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const username = document.getElementById("new-username").value.trim();
+        const password = document.getElementById("new-password").value.trim();
+        const msg = document.getElementById("register-message");
+
+        const res = await fetch(`${backendBase}/api/register`, {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+        msg.classList.remove("hidden");
+        msg.textContent = data.success ? "🎉 Registered successfully! You can now login." : data.message;
+        msg.className = data.success ? "text-green-400 text-sm text-center mt-4" : "text-red-400 text-sm text-center mt-4";
+      });
+    </script>
+  </body>
+</html>
