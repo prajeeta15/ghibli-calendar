@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const User = require("./models/user");
 const path = require("path");
 const mongoose = require("mongoose");
 const fs = require("fs");
