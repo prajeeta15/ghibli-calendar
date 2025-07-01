@@ -1,5 +1,10 @@
 ## Studio Ghibli Calendar Web/Mobile App
-# in production
+## in production
+
+try demo version on [https://ghibli-calendar.onrender.com]
+
+default login username-prajeeta
+password - sup
 
 demo screens
 
