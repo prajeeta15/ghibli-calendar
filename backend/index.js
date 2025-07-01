@@ -10,7 +10,10 @@ process.env.DEBUG = 'passport:*';
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 const PORT = process.env.PORT || 5000;
-const backendBase = `http://localhost:${PORT}`;
+const backendBase =
+  process.env.NODE_ENV === "production"
+    ? process.env.BACKEND_URL || `http://localhost:${PORT}`
+    : `http://localhost:${PORT}`;
 
 const tasksRoutes = require("./routes/tasks");
 
