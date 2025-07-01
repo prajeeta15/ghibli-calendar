@@ -85,7 +85,10 @@
 </div>
 
     <script>
-      const backendBase = "http://localhost:5000"; // or your Render backend
+     const backendBase = window.location.hostname.includes("localhost")
+       ? "http://localhost:5000"
+       : "https://ghibli-calendar.onrender.com";
+
 
       document.getElementById("register-form").addEventListener("submit", async (e) => {
         e.preventDefault();
