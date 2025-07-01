@@ -406,7 +406,7 @@ const switchUserLink = document.getElementById("switch-user");
 
 const backendBase = window.location.hostname.includes("localhost")
   ? "http://localhost:5000"
-  : "https://your-backend.onrender.com";
+  : "https://ghibli-calendar.onrender.com";
 
 // Toggle Settings Panel
 settingsBtn.addEventListener("click", () => {
